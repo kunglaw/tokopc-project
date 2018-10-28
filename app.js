@@ -5,6 +5,7 @@ const app = express();
 const port = process.env.PORT || 7010;
 
 const Model = require("./models");
+app.use(express.static("assets"));
 
 const getCurrency = require("./helpers/getCurrency")
 const productRoute = require("./routes/productRoute")
@@ -20,7 +21,7 @@ app.locals.age = 0
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.use(express.static("assets"));
+
 app.set("view engine","ejs");
 
 app.use("/product",productRoute)
