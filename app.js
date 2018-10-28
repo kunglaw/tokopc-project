@@ -2,7 +2,7 @@ const express = require("express");
 //var bodyParser = require('body-parser');
 const app = express();
 
-const port = 7010;
+const port = process.env.PORT || 7010;
 
 const Model = require("./models");
 
