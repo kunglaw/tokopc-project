@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 7010;
 
 const Model = require("./models");
-app.use(express.static("assets"));
+app.use(express.static("./assets"));
 
 const getCurrency = require("./helpers/getCurrency")
 const productRoute = require("./routes/productRoute")
