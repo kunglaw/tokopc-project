@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <%-include('templates/head')%>
+
+  <body>
+
+    <%-include('templates/navbar')%>
+
+    <script>
+        function isSure(name){
+            return confirm("Are you sure want to delete this product '"+name+"' ? ")
+        }
+    </script>
+    <div style="margin-bottom:100px"></div>
+    <main role="main" class="container">
+    
+        
+        <h1> <%=title%> </h1>
+        <a href="/product/add" class='btn btn-primary float-right'> Add Product</a>
+        <br class='clearfix'><br>
+        <table class="table table-bordered">
+            <thead>
+                <th> ID </th>
+                <th> Product Name </th>
+                <th> Price </th>
+                <th> Stock </th>
+                <th> Action </th>
+            </thead>
+            <tbody>
+                <% products.forEach(row =>{ %>
+                <tr>
+                    <td> <%=row.id%> </td>
+                    <td> <%=row.name%> </td>
+                    <td> <%=getCurrency(row.price)%> </td>
+                    <td> <%=row.stock%> </td>
+                    <td> 
+                        <a href="/product/update/<%=row.id%>" > Edit </a> || 
+                        <a onClick="return isSure('<%=row.name%>')" href="/product/delete/<%=row.id%>" > Delete </a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        
+    
+    </main>
+
+   
+  </body>
+</html>

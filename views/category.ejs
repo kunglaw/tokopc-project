@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <%-include('templates/head')%>
+
+  <body>
+
+    <%-include('templates/navbar')%>
+
+    <script>
+        function isSure(name){
+            return confirm("Are you sure want to delete this category '"+name+"' ? ")
+        }
+    </script>
+    <div style="margin-bottom:100px"></div>
+    <main role="main" class="container">
+    
+        
+        <h1> <%=title%> </h1>
+        <a href="/category/add" class='btn btn-primary float-right'> Add Category</a>
+        <br class='clearfix'><br>
+
+        
+
+        <table class='table table-bordered'>
+            <thead>
+                <th> Id </th>
+                <th> Category </th>
+                <th>Action</th>
+            </thead>
+           
+            <tbody>
+            <%
+            for(cat  of categories ) {
+            %>
+            <tr>
+                <td><%=cat.id %></td>
+                <td><%=cat.name %></td>
+                <td>
+                    <a href='/category/update/<%=cat.id%>'> Update </a>
+                    ||
+                    <a href='/category/delete/<%=cat.id%>' onclick="isSure('<%=cat.name %>')"> Delete </a>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+            
+        </table>
+    
+    </main>
+
+   
+  </body>
+</html>

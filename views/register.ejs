@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+    <%-include('templates/head')%>
+
+  <body>
+
+    <%-include('templates/navbarLogin')%>
+
+    
+    <div style="margin-bottom:100px"></div>
+    <main role="main" class="container">
+        <div class="card col-md-5 mx-auto">
+            
+            <div class="card-body">
+                <div class="card-title">
+                    <h2> Register </h2>
+                </div>
+                <% 
+                
+                if(message){ %>
+                    <% 
+                        var classC = ''
+                        if(status === "error"){
+                            classC = "alert alert-danger"
+                        }else{
+                            classC = 'alert alert-success'
+                        }
+                    %>
+                    <div class="<%=classC%>">
+                        <% for(m of message){ %>
+                            <div><%=m.message%></div>
+                        <% } %>
+                    </div>
+                <% } %>
+                <form action='/user/register' method='post'>
+                    <div class='form-group'>
+                        <label> Name </label>
+                        <input type="text" name="name" class='form-control'>
+                    </div> 
+                    <div class="form-group">
+                        <label>Gender</label><br>
+                        <label for='male'> <input id='male' type="radio" name="gender" value="male"> Male </label>
+                        <label for='female'> <input id="female" type="radio" name="gender" value="female"> Female </label>
+                    </div>
+                    <div class="form-group">
+                        <label> Email </label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label> Password </label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <button class='btn btn-primary' type='submit'> Register </button>
+                </form>
+                
+            </div>
+            
+           
+        </div>
+        
+        
+    
+    </main>
+
+   
+  </body>
+</html>

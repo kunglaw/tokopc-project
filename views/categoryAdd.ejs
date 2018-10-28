@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <%- include('templates/head') %>
+
+  <body>
+
+    <%- include('templates/navbar') %>
+    <div style="margin-bottom:100px"></div>
+    <main role="main" class="container">
+    
+        
+        <h1> <%=title%> </h1>
+        <!-- <a href="/product/add" class='btn btn-primary float-right'> Add Product</a>
+        <br class='clearfix'><br> -->
+        
+        <form action="/category/add" class="form" method="post">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control">
+            </div>
+            
+            <button class="btn btn-primary" type="submit"> Add Category</button>
+        </form>
+        
+    
+    </main>
+
+   
+  </body>
+</html>
