@@ -15,5 +15,6 @@
     "express-session": "^1.15.6",
     "pg": "^7.4.3",
     "sequelize": "^4.38.0"
-  }
+  },
+  "start":"node app.js"
 }
